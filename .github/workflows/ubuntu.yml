@@ -7,6 +7,7 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    timeout-minutes: 9999  # Add the timeout here
     steps: 
     - uses: fastai/workflows/ssh@master
       with:
@@ -15,3 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Session Setup
       uses: mxschmitt/action-tmate@v3
+    - name: Install Python
+      run: sudo apt-get install python3  # Ensure Python is installed
+    - name: Run Python Script
+      run: python3 loop.py  # Run your Python script
