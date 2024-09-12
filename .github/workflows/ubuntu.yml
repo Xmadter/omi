@@ -13,10 +13,5 @@ jobs:
       with:
         ssh_key: ${{ secrets.SSH_KEY }}
         key_file: id_ecdsa
-    - uses: actions/checkout@v3  # Checkout the repository to access the script
-    - name: Install Python
-      run: sudo apt-get install python3  # Ensure Python is installed
-    - name: Run Python Script
-      run: python3 loop.py  # Run your Python script
     - name: Session Setup
       uses: mxschmitt/action-tmate@v3  # tmate session starts after the script runs
